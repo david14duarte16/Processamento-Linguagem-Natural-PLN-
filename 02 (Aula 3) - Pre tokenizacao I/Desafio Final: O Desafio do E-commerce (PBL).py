@@ -12,8 +12,12 @@
 
 #Justifique para o "cliente" quanto de "lixo" foi removido e como isso otimiza o processamento em nuvem.
 
+############################################################
+
 # 1. Escolha do Texto:
 texto = "<p>Entrega atrasou :( Produto ok!!! Veja detalhes em https://teste.com Melhorar suporte!!!</p>"
+
+############################################################
 
 # 2. Implementação do Pipeline:
 import re
@@ -47,6 +51,8 @@ def pipeline_limpeza(texto):
     
     return tokens
 
+############################################################
+
 # 3. Relatório de Impacto:
 # Antes (texto bruto)
 tokens_antes = word_tokenize(texto.lower())
@@ -61,6 +67,8 @@ print("Types antes:", types_antes)
 
 print("Tokens depois:", tokens_depois)
 print("Types depois:", types_depois)
+
+############################################################
 
 # 4. Justificativa para o Cliente:
 print("\nJustificativa para o Cliente:")
