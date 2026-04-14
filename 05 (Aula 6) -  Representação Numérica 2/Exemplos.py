@@ -18,7 +18,7 @@ tf_matrix = vectorizer.fit_transform(corpus)
 # Visualizando como DataFrame para análise
 df_tf = pd.DataFrame(tf_matrix.toarray(), columns = vectorizer.get_feature_names_out()) 
 print("Matriz de Frequência Bruta (TF):")
-display(df_tf)
+print(df_tf)
 
 # Módulo 2: 0 Peso do Mundo (Inverse Document FrequencyIDF)
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -27,12 +27,12 @@ tfidf_matrix = tfidf_vectorizer.fit_transform(corpus)
 # Mapeando termos aos seus pesos IDF
 df_idf = pd.DataFrame(tfidf_vectorizer.idf_, index=tfidf_vectorizer.get_feature_names_out(), columns=["Peso IDF"])
 print("Pesos IDF (Quanto maior, mais rara/importante é a palavra no contexto global):") 
-display(df_idf.sort_values (by="Peso IDF", ascending=False))
+print(df_idf.sort_values (by="Peso IDF", ascending=False))
 
 # Módulo 3: Construindo a Matriz TF-IDF Final
 df_tfidf_final = pd.DataFrame(tfidf_matrix.toarray(), columns=tfidf_vectorizer.get_feature_names_out()) 
 print("Matriz TF-IDF Final (Normalizada):")
-display(df_tfidf_final)
+print(df_tfidf_final)
 
 ############################################################
 
@@ -91,7 +91,7 @@ def ler(nome_arquivo):
 
 # Função para fazer a limpeza do texto
 def limpar (lista):
-    lixo = '., :;?!" ~~`^~( ) [ ] { }/\|@#$% ̈&*- '
+    lixo = r'., :;?!" ~~`^~( ) [ ] { }/\|@#$% ̈&*- '
     quase_limpo = [x.strip (lixo).lower() for x in lista]
     return [x for x in quase_limpo if x.isalpha() or '-' not in x]
 
